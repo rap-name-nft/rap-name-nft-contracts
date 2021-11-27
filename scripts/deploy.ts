@@ -6,6 +6,16 @@
 import { ethers } from "hardhat";
 import {rapNames} from "../rapNames";
 
+function shuffleArray(array: string[]) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+}
+
+
 async function main() {
   // Hardhat always runs the compile task when running scripts with its command
   // line interface.
@@ -21,6 +31,7 @@ async function main() {
   await rapNameNFT.deployed();
 
   console.log("RapNameNFT deployed to:", rapNameNFT.address);
+  shuffleArray(rapNames);
   await rapNameNFT.setRapNames(rapNames);
 }
 

@@ -104,6 +104,7 @@ contract RapNameNFT is ERC721Enumerable, ERC721URIStorage, Ownable {
 
     function constructTokenURI(uint256 tokenId) internal view returns (string memory) {
         string memory image = generateSvgImage(tokenId);
+        string memory rapName = rapNames[tokenId];
 
         return
         string(
@@ -113,10 +114,11 @@ contract RapNameNFT is ERC721Enumerable, ERC721URIStorage, Ownable {
                     bytes(
                         abi.encodePacked(
                             '{"name":"',
-                            'RapNameNFT #',
-                            uint2str(tokenId),
+                            rapName,
                             '", "description":"',
-                            'You\'re Welcome',
+                            'Every web3 rapper needs a web3 name.',
+                            '\n',
+                            'Rap Name NFT generates a random rap name for you on-chain.',
                             '", "image": "',
                             'data:image/svg+xml;base64,',
                             image,
