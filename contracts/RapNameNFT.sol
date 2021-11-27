@@ -14,7 +14,7 @@ contract RapNameNFT is ERC721Enumerable, ERC721URIStorage, Ownable {
 
     using SafeMath for uint256;
     using Counters for Counters.Counter;
-    uint256 public constant MAX_SUPPLY = 100;
+    uint256 public constant MAX_SUPPLY = 222;
     uint256 public constant MAX_PURCHASE = 10;
     uint256 public constant PRICE = 0.02 * 10 ** 18;
 
