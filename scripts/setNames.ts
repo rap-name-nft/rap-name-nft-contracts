@@ -16,8 +16,9 @@ async function main() {
 
   // We get the contract to deploy
   const RapNameNFT = await ethers.getContractFactory("RapNameNFTv2");
-  const rapNameNFT = await RapNameNFT.deploy();
-  await rapNameNFT.deployed();
+  const rapNameNFT = await RapNameNFT.attach('0xD2aaac867835A2a5dEA574c043DcB2E3C5fbCfC6');
+  await rapNameNFT.setRapNames(rapNames);
+  await rapNameNFT.ownerClaim();
 
   console.log("RapNameNFT deployed to:", rapNameNFT.address);
 }
